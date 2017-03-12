@@ -3,6 +3,7 @@
 namespace LibraryBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JsonSerializable;
 
 /**
  * Livre
@@ -10,8 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="livre")
  * @ORM\Entity(repositoryClass="LibraryBundle\Repository\LivreRepository")
  */
-class Livre
-{
+class Livre implements JsonSerializable {
+
     /**
      * @var int
      *
@@ -56,14 +57,12 @@ class Livre
      */
     private $fkExemplaire;
 
-
     /**
      * Get id
      *
      * @return int
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -74,8 +73,7 @@ class Livre
      *
      * @return Livre
      */
-    public function setIsbn($isbn)
-    {
+    public function setIsbn($isbn) {
         $this->isbn = $isbn;
 
         return $this;
@@ -86,8 +84,7 @@ class Livre
      *
      * @return string
      */
-    public function getIsbn()
-    {
+    public function getIsbn() {
         return $this->isbn;
     }
 
@@ -98,8 +95,7 @@ class Livre
      *
      * @return Livre
      */
-    public function setTitre($titre)
-    {
+    public function setTitre($titre) {
         $this->titre = $titre;
 
         return $this;
@@ -110,8 +106,7 @@ class Livre
      *
      * @return string
      */
-    public function getTitre()
-    {
+    public function getTitre() {
         return $this->titre;
     }
 
@@ -122,8 +117,7 @@ class Livre
      *
      * @return Livre
      */
-    public function setDateDeParution($dateDeParution)
-    {
+    public function setDateDeParution($dateDeParution) {
         $this->dateDeParution = $dateDeParution;
 
         return $this;
@@ -134,8 +128,7 @@ class Livre
      *
      * @return \DateTime
      */
-    public function getDateDeParution()
-    {
+    public function getDateDeParution() {
         return $this->dateDeParution;
     }
 
@@ -146,8 +139,7 @@ class Livre
      *
      * @return Livre
      */
-    public function setDateDeDisponibilite($dateDeDisponibilite)
-    {
+    public function setDateDeDisponibilite($dateDeDisponibilite) {
         $this->dateDeDisponibilite = $dateDeDisponibilite;
 
         return $this;
@@ -158,8 +150,7 @@ class Livre
      *
      * @return \DateTime
      */
-    public function getDateDeDisponibilite()
-    {
+    public function getDateDeDisponibilite() {
         return $this->dateDeDisponibilite;
     }
 
@@ -170,8 +161,7 @@ class Livre
      *
      * @return Livre
      */
-    public function setFkExemplaire($fkExemplaire)
-    {
+    public function setFkExemplaire($fkExemplaire) {
         $this->fkExemplaire = $fkExemplaire;
 
         return $this;
@@ -182,9 +172,15 @@ class Livre
      *
      * @return string
      */
-    public function getFkExemplaire()
-    {
+    public function getFkExemplaire() {
         return $this->fkExemplaire;
     }
-}
 
+    public function jsonSerialize() {
+        return array(
+            $this->titre,
+            $this->isbn
+        );
+    }
+
+}
