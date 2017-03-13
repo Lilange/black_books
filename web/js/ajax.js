@@ -14,11 +14,11 @@ function ajaxListeLivers() {
         }
     });
 };
-setTimeout(function(){
-            
-        },1000);
 
 
+$(document).ready(function(){
+    ajaxListeLivers();
+});
 
 
 

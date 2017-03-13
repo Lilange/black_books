@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-  <entity name="LibraryBundle\Entity\Livre" table="livre">
+  <entity name="LibraryBundle\Entity\Categorie" table="categorie">
     <unique-constraints>
-      <unique-constraint name="UNIQ_AC634F99FA891952" columns="ISBN"/>
+      <unique-constraint name="UNIQ_497DD6346C6E55B5" columns="nom"/>
+      <unique-constraint name="UNIQ_497DD634ED0225A2" columns="sousCategorie"/>
     </unique-constraints>
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="isbn" type="integer" column="ISBN" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
-    <field name="titre" type="string" column="titre" length="255" nullable="false">
+    <field name="nom" type="string" column="nom" length="255" nullable="false">
       <options>
         <option name="fixed"/>
       </options>
     </field>
-    <field name="datedeparution" type="date" column="dateDeParution" nullable="false"/>
-    <field name="datededisponibilite" type="date" column="dateDeDisponibilite" nullable="false"/>
+    <field name="souscategorie" type="string" column="sousCategorie" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
   </entity>
 </doctrine-mapping>

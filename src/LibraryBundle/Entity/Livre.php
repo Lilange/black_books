@@ -9,179 +9,95 @@ use JsonSerializable;
 /**
  * Livre
  *
- * @ORM\Table(name="livre")
- * @ORM\Entity(repositoryClass="LibraryBundle\Repository\LivreRepository")
+ * @ORM\Table(name="livre", uniqueConstraints={@ORM\UniqueConstraint(name="UNIQ_AC634F99FA891952", columns={"ISBN"})})
+ * @ORM\Entity
  */
 class Livre implements JsonSerializable {
 
     /**
-     * @var int
+     * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="isbn", type="string", length=255)
+     * @ORM\Column(name="ISBN", type="integer", nullable=false)
      */
     private $isbn;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="titre", type="string", length=255)
+     * @ORM\Column(name="titre", type="string", length=255, nullable=false)
      */
     private $titre;
 
     /**
      * @var DateTime
      *
-     * @ORM\Column(name="date_de_parution", type="datetime")
+     * @ORM\Column(name="datedeparution", type="date", nullable=false)
      */
-    private $dateDeParution;
+    private $datedeparution;
 
     /**
      * @var DateTime
      *
-     * @ORM\Column(name="date_de_disponibilite", type="datetime", nullable=true)
+     * @ORM\Column(name="datededisponibilite", type="date", nullable=false)
      */
-    private $dateDeDisponibilite;
+    private $datededisponibilite;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="fk_exemplaire", type="string", length=255, nullable=true)
-     */
-    private $fkExemplaire;
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId() {
+    function getId() {
         return $this->id;
     }
 
-    /**
-     * Set isbn
-     *
-     * @param string $isbn
-     *
-     * @return Livre
-     */
-    public function setIsbn($isbn) {
-        $this->isbn = $isbn;
-
-        return $this;
-    }
-
-    /**
-     * Get isbn
-     *
-     * @return string
-     */
-    public function getIsbn() {
+    function getIsbn() {
         return $this->isbn;
     }
 
-    /**
-     * Set titre
-     *
-     * @param string $titre
-     *
-     * @return Livre
-     */
-    public function setTitre($titre) {
-        $this->titre = $titre;
-
-        return $this;
-    }
-
-    /**
-     * Get titre
-     *
-     * @return string
-     */
-    public function getTitre() {
+    function getTitre() {
         return $this->titre;
     }
 
-    /**
-     * Set dateDeParution
-     *
-     * @param DateTime $dateDeParution
-     *
-     * @return Livre
-     */
-    public function setDateDeParution($dateDeParution) {
-        $this->dateDeParution = $dateDeParution;
-
-        return $this;
+    function getDatedeparution() {
+        return $this->datedeparution;
     }
 
-    /**
-     * Get dateDeParution
-     *
-     * @return DateTime
-     */
-    public function getDateDeParution() {
-        return $this->dateDeParution;
+    function getDatededisponibilite() {
+        return $this->datededisponibilite;
     }
 
-    /**
-     * Set dateDeDisponibilite
-     *
-     * @param DateTime $dateDeDisponibilite
-     *
-     * @return Livre
-     */
-    public function setDateDeDisponibilite($dateDeDisponibilite) {
-        $this->dateDeDisponibilite = $dateDeDisponibilite;
-
-        return $this;
+    function setId($id) {
+        $this->id = $id;
     }
 
-    /**
-     * Get dateDeDisponibilite
-     *
-     * @return DateTime
-     */
-    public function getDateDeDisponibilite() {
-        return $this->dateDeDisponibilite;
+    function setIsbn($isbn) {
+        $this->isbn = $isbn;
     }
 
-    /**
-     * Set fkExemplaire
-     *
-     * @param string $fkExemplaire
-     *
-     * @return Livre
-     */
-    public function setFkExemplaire($fkExemplaire) {
-        $this->fkExemplaire = $fkExemplaire;
-
-        return $this;
+    function setTitre($titre) {
+        $this->titre = $titre;
     }
 
-    /**
-     * Get fkExemplaire
-     *
-     * @return string
-     */
-    public function getFkExemplaire() {
-        return $this->fkExemplaire;
+    function setDatedeparution(DateTime $datedeparution) {
+        $this->datedeparution = $datedeparution;
+    }
+
+    function setDatededisponibilite(DateTime $datededisponibilite) {
+        $this->datededisponibilite = $datededisponibilite;
     }
 
     public function jsonSerialize() {
         return array(
+            
             'titre' => $this->titre,
-            'isbn' => $this->isbn
-               
+            'isbn' => $this->isbn,
+            'datededisponibilite' => $this->datededisponibilite,
+            'datedeparution' => $this->datedeparution
         );
     }
 
