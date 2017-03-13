@@ -1,22 +1,22 @@
 
-$(document).ready(function () {
+function ajaxListeLivers() {
 
     $.ajax({
         url: "./books",
         type: 'GET',
         dataType: 'json',
         async: true,
-        success: function (data) {
-            $("#liste_div").empty();
-            var liste = $.parseJSON(livres);
-            $(liste).each(function (e) {
-                $("#liste_div").append("<p>@" + this.titre + "</p>");
-                
+        success: function (data){
+        
+            $(data).each(function(e){
+                $("#livre").append("<p>"+this.titre+"</p>");
             });
         }
     });
-});
-
+};
+setTimeout(function(){
+            
+        },1000);
 
 
 

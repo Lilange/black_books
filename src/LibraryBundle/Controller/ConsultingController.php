@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 /**
  * Description of ConsultingController
  * @Route("/consulting")
- * @author sebastien
+ *
  */
 class ConsultingController extends Controller {
 
@@ -33,13 +33,13 @@ class ConsultingController extends Controller {
      */
     public function bookList() {
 //        $em = $this->getDoctrine()->getManager();
-        $livres = $this->getDoctrine()->getRepository(Livre::class)->findAll();
+      
 
        
         
-        $reponceJson = new JsonResponse();
+        return new JsonResponse($this->getDoctrine()->getRepository(Livre::class)->findAll());
         
-        return $reponceJson->setData($livres);
+        
 //        return $this->render('default/index.html.twig',array("books"=>$livres));
     }
 

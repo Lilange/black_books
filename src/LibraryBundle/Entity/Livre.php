@@ -2,6 +2,7 @@
 
 namespace LibraryBundle\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use JsonSerializable;
 
@@ -37,14 +38,14 @@ class Livre implements JsonSerializable {
     private $titre;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      *
      * @ORM\Column(name="date_de_parution", type="datetime")
      */
     private $dateDeParution;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      *
      * @ORM\Column(name="date_de_disponibilite", type="datetime", nullable=true)
      */
@@ -113,7 +114,7 @@ class Livre implements JsonSerializable {
     /**
      * Set dateDeParution
      *
-     * @param \DateTime $dateDeParution
+     * @param DateTime $dateDeParution
      *
      * @return Livre
      */
@@ -126,7 +127,7 @@ class Livre implements JsonSerializable {
     /**
      * Get dateDeParution
      *
-     * @return \DateTime
+     * @return DateTime
      */
     public function getDateDeParution() {
         return $this->dateDeParution;
@@ -135,7 +136,7 @@ class Livre implements JsonSerializable {
     /**
      * Set dateDeDisponibilite
      *
-     * @param \DateTime $dateDeDisponibilite
+     * @param DateTime $dateDeDisponibilite
      *
      * @return Livre
      */
@@ -148,7 +149,7 @@ class Livre implements JsonSerializable {
     /**
      * Get dateDeDisponibilite
      *
-     * @return \DateTime
+     * @return DateTime
      */
     public function getDateDeDisponibilite() {
         return $this->dateDeDisponibilite;
@@ -178,8 +179,9 @@ class Livre implements JsonSerializable {
 
     public function jsonSerialize() {
         return array(
-            $this->titre,
-            $this->isbn
+            'titre' => $this->titre,
+            'isbn' => $this->isbn
+               
         );
     }
 
