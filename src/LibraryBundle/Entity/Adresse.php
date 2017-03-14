@@ -56,54 +56,6 @@ class Adresse
      */
     private $ville;
 
-    function getId() {
-        return $this->id;
-    }
-
-    function getNumero() {
-        return $this->numero;
-    }
-
-    function getTypedevoie() {
-        return $this->typedevoie;
-    }
-
-    function getComplement() {
-        return $this->complement;
-    }
-
-    function getCodepostal() {
-        return $this->codepostal;
-    }
-
-    function getVille() {
-        return $this->ville;
-    }
-
-    function setId($id) {
-        $this->id = $id;
-    }
-
-    function setNumero($numero) {
-        $this->numero = $numero;
-    }
-
-    function setTypedevoie($typedevoie) {
-        $this->typedevoie = $typedevoie;
-    }
-
-    function setComplement($complement) {
-        $this->complement = $complement;
-    }
-
-    function setCodepostal($codepostal) {
-        $this->codepostal = $codepostal;
-    }
-
-    function setVille($ville) {
-        $this->ville = $ville;
-    }
-
 
 }
 

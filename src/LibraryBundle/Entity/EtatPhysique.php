@@ -28,23 +28,6 @@ class EtatPhysique
      */
     private $definition;
 
-    function getId() {
-        return $this->id;
-    }
-
-    function getDefinition() {
-        return $this->definition;
-    }
-
-    function setId($id) {
-        $this->id = $id;
-    }
-
-    function setDefinition($definition) {
-        $this->definition = $definition;
-    }
-
-
 
 }
 

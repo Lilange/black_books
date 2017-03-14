@@ -21,6 +21,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class ConsultingController extends Controller {
 
     /**
+     * Retourne la vue 
      * @Route("/")
      */
     public function viewConsulting() {
@@ -32,23 +33,14 @@ class ConsultingController extends Controller {
      * @Route("/books")
      */
     public function bookList() {
-//        $em = $this->getDoctrine()->getManager();
-      
-
-       
-        
         return new JsonResponse($this->getDoctrine()->getRepository(Livre::class)->findAll());
-        
-        
-//        return $this->render('default/index.html.twig',array("books"=>$livres));
     }
 
     /**
-     * @Route("/books/id")
+     * @Route("/book")
      */
     public function bookDetail() {
-
-        return $this->render('default/index.html.twig');
+        
     }
 
 }

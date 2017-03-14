@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Categorie
  *
- * @ORM\Table(name="categorie", uniqueConstraints={@ORM\UniqueConstraint(name="UNIQ_497DD6346C6E55B5", columns={"nom"}), @ORM\UniqueConstraint(name="UNIQ_497DD634ED0225A2", columns={"sousCategorie"})})
+ * @ORM\Table(name="categorie")
  * @ORM\Entity
  */
 class Categorie
@@ -59,6 +59,9 @@ class Categorie
         $this->souscategorie = $souscategorie;
     }
 
+    public function __toString() {
+        return $this->nom;
+    }
 
 }
 

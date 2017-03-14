@@ -9,7 +9,9 @@ function ajaxListeLivers() {
         success: function (data){
         
             $(data).each(function(e){
-                $("#livre").append("<p>"+this.titre+"</p>");
+               var date = Date(this.datedeparutionthis);
+                
+                $("#content").append("<p>"+this.titre+"</p> <br>"+"<p>"+this.isbn+"</p>"+date+"<p>"+"</p>"+"<p>"+this.fkCatgorie+"</p>");
             });
         }
     });

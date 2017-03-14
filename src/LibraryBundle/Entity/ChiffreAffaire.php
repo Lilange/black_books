@@ -27,23 +27,6 @@ class ChiffreAffaire
      * @ORM\Column(name="Total", type="float", precision=10, scale=0, nullable=false)
      */
     private $total;
- 
-    function getId() {
-        return $this->id;
-    }
-
-    function getTotal() {
-        return $this->total;
-    }
-
-    function setId($id) {
-        $this->id = $id;
-    }
-
-    function setTotal($total) {
-        $this->total = $total;
-    }
-
 
 
 }

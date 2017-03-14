@@ -28,22 +28,6 @@ class Livraison
      */
     private $numerolivraison;
 
-    function getId() {
-        return $this->id;
-    }
-
-    function getNumerolivraison() {
-        return $this->numerolivraison;
-    }
-
-    function setId($id) {
-        $this->id = $id;
-    }
-
-    function setNumerolivraison($numerolivraison) {
-        $this->numerolivraison = $numerolivraison;
-    }
-
 
 }
 

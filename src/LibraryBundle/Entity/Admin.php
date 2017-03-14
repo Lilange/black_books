@@ -49,46 +49,6 @@ class Admin
      */
     private $role;
 
-    function getId() {
-        return $this->id;
-    }
-
-    function getNom() {
-        return $this->nom;
-    }
-
-    function getPrenom() {
-        return $this->prenom;
-    }
-
-    function getMotdepasse() {
-        return $this->motdepasse;
-    }
-
-    function getRole() {
-        return $this->role;
-    }
-
-    function setId($id) {
-        $this->id = $id;
-    }
-
-    function setNom($nom) {
-        $this->nom = $nom;
-    }
-
-    function setPrenom($prenom) {
-        $this->prenom = $prenom;
-    }
-
-    function setMotdepasse($motdepasse) {
-        $this->motdepasse = $motdepasse;
-    }
-
-    function setRole($role) {
-        $this->role = $role;
-    }
-
 
 }
 

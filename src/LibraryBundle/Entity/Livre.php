@@ -12,8 +12,8 @@ use JsonSerializable;
  * @ORM\Table(name="livre", uniqueConstraints={@ORM\UniqueConstraint(name="UNIQ_AC634F99FA891952", columns={"ISBN"})})
  * @ORM\Entity
  */
-class Livre implements JsonSerializable {
-
+class Livre implements JsonSerializable
+{
     /**
      * @var integer
      *
@@ -40,17 +40,25 @@ class Livre implements JsonSerializable {
     /**
      * @var DateTime
      *
-     * @ORM\Column(name="datedeparution", type="date", nullable=false)
+     * @ORM\Column(name="dateDeParution", type="date", nullable=false)
      */
     private $datedeparution;
 
     /**
      * @var DateTime
      *
-     * @ORM\Column(name="datededisponibilite", type="date", nullable=false)
+     * @ORM\Column(name="dateDeDisponibilite", type="date", nullable=false)
      */
     private $datededisponibilite;
 
+    /**
+     * @var string  
+     * 
+     * @ORM\ManyToOne(targetEntity="Categorie")
+     * @ORM\JoinColumn(name="fk_catgorie", referencedColumnName="id")
+     */
+    private $fkCatgorie;
+    
     function getId() {
         return $this->id;
     }
@@ -69,6 +77,10 @@ class Livre implements JsonSerializable {
 
     function getDatededisponibilite() {
         return $this->datededisponibilite;
+    }
+
+    function getFkCatgorie() {
+        return $this->fkCatgorie;
     }
 
     function setId($id) {
@@ -91,14 +103,20 @@ class Livre implements JsonSerializable {
         $this->datededisponibilite = $datededisponibilite;
     }
 
+    function setFkCatgorie($fkCatgorie) {
+        $this->fkCatgorie = $fkCatgorie;
+    }
+
     public function jsonSerialize() {
         return array(
             
             'titre' => $this->titre,
             'isbn' => $this->isbn,
             'datededisponibilite' => $this->datededisponibilite,
-            'datedeparution' => $this->datedeparution
+            'datedeparution' => $this->datedeparution,
+            'fkCatgorie' => $this->fkCatgorie
         );
     }
 
 }
+

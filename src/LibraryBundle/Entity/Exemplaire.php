@@ -56,54 +56,6 @@ class Exemplaire
      */
     private $estimation;
 
-    function getId() {
-        return $this->id;
-    }
-
-    function getQuantite() {
-        return $this->quantite;
-    }
-
-    function getNumero() {
-        return $this->numero;
-    }
-
-    function getEmprunt() {
-        return $this->emprunt;
-    }
-
-    function getPrix() {
-        return $this->prix;
-    }
-
-    function getEstimation() {
-        return $this->estimation;
-    }
-
-    function setId($id) {
-        $this->id = $id;
-    }
-
-    function setQuantite($quantite) {
-        $this->quantite = $quantite;
-    }
-
-    function setNumero($numero) {
-        $this->numero = $numero;
-    }
-
-    function setEmprunt($emprunt) {
-        $this->emprunt = $emprunt;
-    }
-
-    function setPrix($prix) {
-        $this->prix = $prix;
-    }
-
-    function setEstimation($estimation) {
-        $this->estimation = $estimation;
-    }
-
 
 }
 

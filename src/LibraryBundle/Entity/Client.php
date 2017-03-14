@@ -49,46 +49,6 @@ class Client
      */
     private $echeance;
 
-    function getId() {
-        return $this->id;
-    }
-
-    function getNumerodeserie() {
-        return $this->numerodeserie;
-    }
-
-    function getNom() {
-        return $this->nom;
-    }
-
-    function getPrenom() {
-        return $this->prenom;
-    }
-
-    function getEcheance() {
-        return $this->echeance;
-    }
-
-    function setId($id) {
-        $this->id = $id;
-    }
-
-    function setNumerodeserie($numerodeserie) {
-        $this->numerodeserie = $numerodeserie;
-    }
-
-    function setNom($nom) {
-        $this->nom = $nom;
-    }
-
-    function setPrenom($prenom) {
-        $this->prenom = $prenom;
-    }
-
-    function setEcheance(\DateTime $echeance) {
-        $this->echeance = $echeance;
-    }
-
 
 }
 
